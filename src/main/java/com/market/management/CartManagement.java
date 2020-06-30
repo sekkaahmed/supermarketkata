@@ -3,7 +3,6 @@ package com.market.management;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
@@ -67,13 +66,12 @@ public class CartManagement {
     			BigDecimal size=new BigDecimal(v.size());
     			BigDecimal price=v.get(0).getPrice();
     			Offer offer=v.get(0).getOffer();
-    			int offerCountItems=offer.getCountItem();
     			BigDecimal totalOffersSum=BigDecimal.ZERO;
     			BigDecimal totalNotOffersSum=BigDecimal.ZERO;
     			if(offer==null) {
     				totalNotOffersSum=price.multiply(size);
     			}else {
-    				
+    			 int offerCountItems=offer.getCountItem();
     			 int elemntsInOffer=v.size()/offerCountItems;
     			 int elemntsOffOffer=v.size()%offerCountItems;
     			 BigDecimal totalOffers=offer.getCountItemPrice().multiply(new BigDecimal(elemntsInOffer));

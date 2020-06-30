@@ -1,6 +1,7 @@
 package com.market.pojos;
 
 import java.math.BigDecimal;
+import java.text.NumberFormat;
 
 public class Offer {
 
@@ -31,6 +32,7 @@ public class Offer {
     
     @Override
     public String toString() {
-        return " CountItem: "+countItem+"CountItemPrice   :"+countItemPrice;
+    	NumberFormat format = NumberFormat.getCurrencyInstance();
+        return " CountItem: "+countItem+" CountItemPrice: "+format.format(countItemPrice);
     }
 }

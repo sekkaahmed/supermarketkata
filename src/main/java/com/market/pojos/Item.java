@@ -1,6 +1,7 @@
 package com.market.pojos;
 
 import java.math.BigDecimal;
+import java.text.NumberFormat;
 
 public class Item {
 
@@ -42,8 +43,8 @@ public class Item {
 
     @Override
     public String toString() {
-
-	return "Code: " + code + "   Price: " + price + "  Offer_ " + offer;
+    NumberFormat format = NumberFormat.getCurrencyInstance();
+	return "Code: " + code + "  Price: " +format.format(price) + "  Offer_ " + offer;
     }
 
 }
