@@ -1,5 +1,6 @@
 package com.market.management;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -44,11 +45,17 @@ public class CartManagement {
        cart.getListItems().clear();
     }
     
+    public BigDecimal calculateTotalAccount(Cart cart) {
+    	
+    	return null;
+    	
+    }
+    
     /**
      * Show cart item list
      * @param cart
      */
-    public void viewCartItem(Cart cart){
+    public void viewCartItems(Cart cart){
 	
 	if(cart!=null) {
 	    log.info("Cart code: "+cart.getCode());	
