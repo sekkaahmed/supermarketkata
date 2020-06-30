@@ -13,7 +13,7 @@
 #local env
 .classpath
 .project
-/settings/
+/.settings/
 
 # Package Files #
 *.jar

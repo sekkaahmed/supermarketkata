@@ -24,6 +24,6 @@ public class Offer {
     
     @Override
     public String toString() {
-        return "CountItem: "+countItem+"CountItemPrice   :"+countItemPrice;
+        return "Offer_  CountItem: "+countItem+"CountItemPrice   :"+countItemPrice;
     }
 }

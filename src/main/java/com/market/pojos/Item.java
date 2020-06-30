@@ -42,6 +42,7 @@ public class Item {
 
     @Override
     public String toString() {
+
 	return "Code: " + code + "   Price: " + price + "  Offer_ " + offer;
     }
 
