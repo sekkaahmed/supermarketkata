@@ -15,16 +15,16 @@ public class CartManagement {
       * @param cart
       * @param item
       */
-    public void addItem(Cart cart,Item item) {
-	cart.getListItems().add(item);
+    public boolean addItem(Cart cart,Item item) {
+	    return cart.getListItems().add(item);
     }
     /**
      * Add a list of items to a cart
      * @param cart
      * @param listIstems
      */
-    public void addItems(Cart cart,List<Item> listIstems) {
-	cart.getListItems().addAll(listIstems);
+    public boolean addItems(Cart cart,List<Item> listIstems) {
+	   return cart.getListItems().addAll(listIstems);
     }
 
     /**
@@ -32,8 +32,8 @@ public class CartManagement {
      * @param cart
      * @param item
      */
-    public void removeItem(Cart cart, Item item) {
-	cart.getListItems().remove(item);
+    public boolean removeItem(Cart cart, Item item) {
+	    return cart.getListItems().remove(item);
     }
     
     /**
@@ -54,7 +54,6 @@ public class CartManagement {
 	    log.info("Cart code: "+cart.getCode());	
 	    List<Item> listItems=cart.getListItems();
 	    if(listItems!=null && !listItems.isEmpty()) {
-		
 		listItems.stream().forEach(item->log.info(item.toString()));
 		
 	    }

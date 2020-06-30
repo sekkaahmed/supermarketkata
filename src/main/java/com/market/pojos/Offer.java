@@ -9,6 +9,13 @@ public class Offer {
     private BigDecimal countItemPrice;
     
     
+    public Offer(Integer countItem,BigDecimal countItemPrice) {
+    	
+    	this.countItem=countItem;
+    	this.countItemPrice=countItemPrice;
+    }
+    
+    
     public Integer getCountItem() {
         return countItem;
     }
