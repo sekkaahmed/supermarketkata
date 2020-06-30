@@ -1,5 +1,6 @@
 package com.market.test;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.math.BigDecimal;
@@ -71,7 +72,13 @@ public class CartManagementTest {
     
     @Test
     public void test_show_all_cart_items() {
+    	cartManagement.viewCartItems(cart);
+    	
+    	BigDecimal sum=cartManagement.calculateTotalAccount(cart);
+    	assertNotNull("The sum of price items  should  not be null",sum);
     	
     }
+    
+    
     
 }
