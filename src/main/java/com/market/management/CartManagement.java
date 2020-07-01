@@ -3,6 +3,7 @@ package com.market.management;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
@@ -37,6 +38,9 @@ public class CartManagement {
      * @param item
      */
     public boolean removeItem(Cart cart, Item item) {
+    	if(null!=cart.getListItems() && !cart.getListItems().contains(item)) {
+    		throw new NoSuchElementException();
+    	}
 	    return cart.getListItems().remove(item);
     }
     
@@ -69,6 +73,7 @@ public class CartManagement {
     			BigDecimal totalOffersSum=BigDecimal.ZERO;
     			BigDecimal totalNotOffersSum=BigDecimal.ZERO;
     			if(offer==null) {
+    				if(price!=null)
     				totalNotOffersSum=price.multiply(size);
     			}else {
     			 int offerCountItems=offer.getCountItem();
@@ -78,7 +83,7 @@ public class CartManagement {
     			 BigDecimal totalInOffers=v.get(0).getPrice().multiply(new BigDecimal(elemntsOffOffer));
     			 totalOffersSum=totalInOffers.add(totalOffers);
     			}
-    			totalSum[0]=totalOffersSum.add(totalNotOffersSum);
+    			totalSum[0]=totalSum[0].add(totalOffersSum.add(totalNotOffersSum));
     			});
     		}
     	}

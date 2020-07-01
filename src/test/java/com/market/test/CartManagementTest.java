@@ -45,7 +45,7 @@ public class CartManagementTest {
 		Item itemF = new Item("code_f", new BigDecimal(150), null);
 		Item itemG = new Item("code_g", new BigDecimal(200), null);
 		List<Item> listIstems = Arrays.asList(itemF, itemG);
-		assertTrue("The item should be removed from the cart list", cartManagement.addItems(cart, listIstems));
+		assertTrue("The sublist items should be added to the cart list ", cartManagement.addItems(cart, listIstems));
 	}
 
 	@Test
@@ -54,6 +54,12 @@ public class CartManagementTest {
 		assertTrue("The item should be removed from the cart list", cartManagement.removeItem(cart, item));
 	}
 
+	@Test(expected =NoSuchElementException.class)
+	public void test_remove_item_exception() {
+		Item itemA1 = new Item("code_1", new BigDecimal(50), null);
+		this.cart.getListItems().remove(itemA1);
+		assertTrue("The item should be removed from the cart list", cartManagement.removeItem(cart, itemA1));
+	}
 
 	@Test
 	public void test_remove_all_items_from_cart() {
@@ -68,10 +74,18 @@ public class CartManagementTest {
 		assertNotNull("The sum of price items  should  not be null", sum);
 
 	}
+	
+	@Test
+	public void test_calculate_with_price_value_null(){
+		Item item = new Item("code_offer",null, null);
+		cartManagement.addItem(cart, item);
+		BigDecimal sum = cartManagement.calculateTotalAccount(cart);
+		assertNotNull("The sum of price items  should  not be null", sum);
+	}
 
 	@Test
 	public void test_if_offer_is_applied() {
-
+		cartManagement.removeAll(cart);
 		Item itemA1 = new Item("code_offer", new BigDecimal(50), new Offer(3, new BigDecimal(130)));
 		Item itemA2 = new Item("code_offer", new BigDecimal(50), new Offer(3, new BigDecimal(130)));
 		Item itemA3 = new Item("code_offer", new BigDecimal(50), new Offer(3, new BigDecimal(130)));
@@ -88,5 +102,18 @@ public class CartManagementTest {
 		sum = cartManagement.calculateTotalAccount(cart);
 		assertEquals(sum, new BigDecimal(180));
 	}
+  @Test
+  public void test_calculate_items_price_sum_without_offer() {
+	    Item itemA1 = new Item("code_a", new BigDecimal(50), null);
+		Item itemA2 = new Item("code_a", new BigDecimal(50), null);
+		Item itemA3 = new Item("code_c", new BigDecimal(40), null);
+		cartManagement.removeAll(cart);
+		cartManagement.addItem(cart, itemA1);
+		cartManagement.addItem(cart, itemA2);
+		cartManagement.addItem(cart, itemA3);
+		BigDecimal sum = cartManagement.calculateTotalAccount(cart);
+		assertEquals(sum, new BigDecimal(140));
+  }
+  
 
 }
