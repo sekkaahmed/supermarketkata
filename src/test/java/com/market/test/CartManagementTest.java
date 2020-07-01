@@ -64,14 +64,14 @@ public class CartManagementTest {
 	@Test
 	public void test_remove_all_items_from_cart() {
 		cartManagement.removeAll(cart);
-		assertTrue("All item should be removed from the cart list", cart.getListItems().isEmpty());
+		assertTrue("All items should be removed from the cart list", cart.getListItems().isEmpty());
 	}
 
 	@Test
 	public void test_show_all_cart_items() {
      	cartManagement.viewCartItems(cart);
 		BigDecimal sum = cartManagement.calculateTotalAccount(cart);
-		assertNotNull("The sum of price items  should  not be null", sum);
+		assertNotNull("The sum of the items price should  not be null", sum);
 
 	}
 	
