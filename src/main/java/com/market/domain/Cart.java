@@ -1,4 +1,4 @@
-package com.market.pojos;
+package com.market.domain;
 
 import java.util.ArrayList;
 import java.util.List;

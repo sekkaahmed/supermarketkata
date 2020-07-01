@@ -7,9 +7,9 @@ import java.util.NoSuchElementException;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
-import com.market.pojos.Cart;
-import com.market.pojos.Item;
-import com.market.pojos.Offer;
+import com.market.domain.Cart;
+import com.market.domain.Item;
+import com.market.domain.Offer;
 
 public class CartManagement {
     

@@ -1,4 +1,4 @@
-package com.market.pojos;
+package com.market.domain;
 
 import java.math.BigDecimal;
 import java.text.NumberFormat;

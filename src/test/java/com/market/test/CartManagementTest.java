@@ -13,10 +13,10 @@ import java.util.NoSuchElementException;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.market.domain.Cart;
+import com.market.domain.Item;
+import com.market.domain.Offer;
 import com.market.management.CartManagement;
-import com.market.pojos.Cart;
-import com.market.pojos.Item;
-import com.market.pojos.Offer;
 
 public class CartManagementTest {
 
